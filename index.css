@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+#gameInstructions {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+#colorBox {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+#colorOptions {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+}
+
+.colorOption {
+  width: 100px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.colorOption:hover {
+  transform: scale(1.1);
+}
+
+#gameStatus {
+  margin: 15px 0;
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#score {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+#newGameButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#newGameButton:hover {
+  background-color: #218838;
+}
+
+@keyframes celebrate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.correct {
+  animation: celebrate 0.5s ease-in-out;
+  color: green;
+}
+
+.wrong {
+  animation: fadeOut 0.5s ease-in-out;
+  color: red;
+}
