@@ -11,6 +11,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: #f4f4f4;
   text-align: center;
   background-color: black;
   color: white;
@@ -62,6 +63,7 @@ h1 {
 #score {
   font-size: 20px;
   margin-bottom: 15px;
+  line-height: 1.5;
 }
 
 #newGameButton {
@@ -70,6 +72,7 @@ h1 {
   background-color: #28a745;
   color: white;
   border: none;
+  border-radius: 20px;
   cursor: pointer;
   transition: background 0.3s;
 }
@@ -100,11 +103,11 @@ h1 {
 }
 
 .correct {
-  animation: celebrate 0.5s ease-in-out;
+  animation: celebrate 4s ease;
   color: green;
 }
 
 .wrong {
-  animation: fadeOut 0.5s ease-in-out;
+  animation: fadeOut 4s ease;
   color: red;
 }

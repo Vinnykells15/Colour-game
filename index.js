@@ -5,6 +5,8 @@ const scoreDisplay = document.getElementById("score");
 const newGameButton = document.getElementById("newGameButton");
 
 let score = 0;
+let correctCount = 0;
+let wrongCount = 0;
 let correctColor = "";
 
 function getRandomColor() {
@@ -41,13 +43,22 @@ function setupGame() {
   gameStatus.className = "";
 }
 
+function updateScoreDisplay() {
+  scoreDisplay.innerHTML = `
+  <span>Correct: ${correctCount}</span> 
+  <span>Wrong: ${wrongCount}</span><br />
+  <span>Total Score: ${score}</span>
+  `;
+}
+
 function checkGuess(selectedColor) {
   if (selectedColor === correctColor) {
     gameStatus.textContent = "Correct!";
     gameStatus.className = "correct";
 
     score++;
-    scoreDisplay.textContent = `Score: ${score}`;
+    correctCount++;
+    updateScoreDisplay();
 
     setTimeout(() => {
       gameStatus.textContent = "";
@@ -56,6 +67,9 @@ function checkGuess(selectedColor) {
   } else {
     gameStatus.textContent = "Wrong! Try again.";
     gameStatus.className = "wrong";
+
+    wrongCount++;
+    updateScoreDisplay();
 
     setTimeout(() => {
       gameStatus.textContent = "";
@@ -66,8 +80,11 @@ function checkGuess(selectedColor) {
 
 newGameButton.addEventListener("click", () => {
   score = 0;
-  scoreDisplay.textContent = "Score: 0";
+  correctCount = 0;
+  wrongCount = 0;
+  updateScoreDisplay();
   setupGame();
 });
 
 setupGame();
+updateScoreDisplay();
